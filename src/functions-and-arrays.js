@@ -52,7 +52,7 @@ function sum(arr) {
         counter += 0;
       }
     } else {
-      console.log("Unsupported data type sir or ma'am"); //missing the error message when datatype is object
+      throw new Error("Unsupported data type sir or ma'am");
     }
   }
   return counter;
@@ -77,7 +77,17 @@ function averageNumbers(arr) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() {}
+function averageWordLength(arr) {
+  counter = 0;
+  if (arr.length === 0) {
+    return null;
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      counter += arr[i].length;
+    }
+  }
+  return counter / arr.length;
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -97,12 +107,35 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  uniqueWords = [];
+  if (arr.length === 0) {
+    return null;
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (uniqueWords.includes(arr[i]) === false) {
+        uniqueWords.push(arr[i]);
+      }
+    }
+  }
+  return uniqueWords;
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr, word) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].includes(word)) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -119,7 +152,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, word) {
+  counter = 0;
+  if (arr.length === 0) {
+    return 0;
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].includes(word)) {
+        counter += 1;
+      }
+    }
+  }
+  return counter;
+}
 
 // Iteration #8: Bonus
 const matrix = [
